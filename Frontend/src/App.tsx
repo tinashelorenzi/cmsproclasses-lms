@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import type { ReactNode } from 'react';
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
 import ClassesPage from './pages/ClassesPage';
@@ -8,7 +9,7 @@ import WarRoomPage from './pages/WarRoomPage';
 import { authHelpers } from './lib/auth';
 
 // Protected Route Component
-function ProtectedRoute({ children }: { children: React.ReactNode }) {
+function ProtectedRoute({ children }: { children: ReactNode }) {
   const isAuthenticated = authHelpers.isAuthenticated();
   return isAuthenticated ? <>{children}</> : <Navigate to="/" replace />;
 }

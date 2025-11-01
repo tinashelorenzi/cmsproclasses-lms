@@ -25,7 +25,8 @@ This project is split into two main components:
 - React Router 7.9.5
 - Tailwind CSS v3
 - Radix UI (Headless UI primitives)
-- lucide-react (Icons)
+- @heroicons/react (Icons)
+- lucide-react (Additional icons)
 - class-variance-authority (Component variants)
 - axios (HTTP client)
 
