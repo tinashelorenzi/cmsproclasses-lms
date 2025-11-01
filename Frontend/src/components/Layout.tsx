@@ -62,32 +62,15 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Left Sidebar */}
-      <div className="fixed inset-y-0 left-0 w-64 bg-cms-dark text-white flex flex-col shadow-lg">
+      {/* Left Sidebar - Canvas-inspired dark navigation */}
+      <div className="fixed inset-y-0 left-0 w-72 bg-gray-800 text-white flex flex-col shadow-xl">
         {/* Logo and Brand */}
-        <div className="flex items-center px-6 py-4 border-b border-gray-700">
-          <img src={logo} alt="CMS Logo" className="h-10 w-auto" />
+        <div className="flex items-center justify-center px-4 py-6 border-b border-gray-700">
+          <img src={logo} alt="CMS Logo" className="h-12 w-auto" />
         </div>
 
-        {/* User Profile Section */}
-        <div className="px-6 py-4 border-b border-gray-700">
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-full bg-cms-primary flex items-center justify-center text-white font-semibold">
-              {user?.first_name?.[0] || user?.username?.[0]?.toUpperCase()}
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium truncate">
-                {user?.first_name} {user?.last_name}
-              </p>
-              <p className="text-xs text-gray-300 truncate">
-                {user?.email}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Navigation */}
-        <nav className="flex-1 px-4 py-4 space-y-1 overflow-y-auto">
+        {/* Navigation - Large icons like Canvas */}
+        <nav className="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
           {navigation.map((item) => {
             const href = `${getBaseRoute()}${item.href.replace('/dashboard', '') || '/dashboard'}`;
             return (
@@ -95,27 +78,40 @@ export default function Layout({ children }: LayoutProps) {
                 key={item.name}
                 to={href}
                 className={cn(
-                  'flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors',
+                  'flex items-center px-4 py-4 text-base font-medium rounded-lg transition-all',
                   item.current
-                    ? 'bg-cms-primary text-white'
-                    : 'text-gray-300 hover:bg-gray-800 hover:text-white'
+                    ? 'bg-cms-primary text-white shadow-lg'
+                    : 'text-gray-200 hover:bg-gray-700 hover:text-white'
                 )}
               >
-                <item.icon className="mr-3 h-5 w-5 flex-shrink-0" />
+                <item.icon className="mr-4 h-7 w-7 flex-shrink-0" />
                 {item.name}
               </Link>
             );
           })}
         </nav>
 
-        {/* Bottom Section */}
-        <div className="px-6 py-4 border-t border-gray-700">
+        {/* User Profile Section */}
+        <div className="px-4 py-4 border-t border-gray-700">
+          <div className="flex items-center space-x-3 mb-4">
+            <div className="w-10 h-10 rounded-full bg-cms-primary flex items-center justify-center text-white font-semibold text-lg">
+              {user?.first_name?.[0] || user?.username?.[0]?.toUpperCase()}
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-semibold truncate">
+                {user?.first_name} {user?.last_name}
+              </p>
+              <p className="text-xs text-gray-400 truncate">
+                {user?.email}
+              </p>
+            </div>
+          </div>
           <button
             onClick={() => {
               authHelpers.clearAuth();
               window.location.href = '/';
             }}
-            className="w-full flex items-center justify-center px-4 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
+            className="w-full flex items-center justify-center px-4 py-2 text-sm font-medium text-gray-200 hover:text-white hover:bg-gray-700 rounded-lg transition-colors"
           >
             Sign Out
           </button>
@@ -123,7 +119,7 @@ export default function Layout({ children }: LayoutProps) {
       </div>
 
       {/* Main Content */}
-      <div className="ml-64 flex-1">
+      <div className="ml-72 flex-1">
         {children}
       </div>
     </div>
