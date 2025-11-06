@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
 import ClassesPage from './pages/ClassesPage';
+import SubjectDetailPage from './pages/SubjectDetailPage';
 import CalendarPage from './pages/CalendarPage';
 import SupportPage from './pages/SupportPage';
 import WarRoomPage from './pages/WarRoomPage';
@@ -35,6 +36,7 @@ function App() {
                 <Route path="/" element={<DashboardPage />} />
                 <Route path="dashboard" element={<DashboardPage />} />
                 <Route path="classes" element={<ClassesPage />} />
+                <Route path="classes/:id" element={<SubjectDetailPage />} />
                 <Route path="calendar" element={<CalendarPage />} />
                 <Route path="support" element={<SupportPage />} />
                 <Route path="war-room" element={<WarRoomPage />} />
@@ -50,6 +52,7 @@ function App() {
                 <Route path="/" element={<DashboardPage />} />
                 <Route path="dashboard" element={<DashboardPage />} />
                 <Route path="classes" element={<ClassesPage />} />
+                <Route path="classes/:id" element={<SubjectDetailPage />} />
                 <Route path="calendar" element={<CalendarPage />} />
                 <Route path="support" element={<SupportPage />} />
                 <Route path="war-room" element={<WarRoomPage />} />
@@ -65,6 +68,7 @@ function App() {
                 <Route path="/" element={<DashboardPage />} />
                 <Route path="dashboard" element={<DashboardPage />} />
                 <Route path="classes" element={<ClassesPage />} />
+                <Route path="classes/:id" element={<SubjectDetailPage />} />
                 <Route path="calendar" element={<CalendarPage />} />
                 <Route path="support" element={<SupportPage />} />
                 <Route path="war-room" element={<WarRoomPage />} />
